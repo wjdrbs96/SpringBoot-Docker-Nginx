@@ -1,0 +1,13 @@
+spring:
+  profiles:
+    active: real1
+server:
+  port: 8081
+
+---
+
+spring:
+  profiles:
+    active: real2
+server:
+  port: 8082
