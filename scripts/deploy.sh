@@ -29,5 +29,7 @@ fi
 DEPLOY_JAR=$DEPLOY_PATH$JAR_NAME
 echo "> DEPLOY_JAR 배포"    >> /home/ec2-user/deploy.log
 
-docker run build -d -p $IDLE_PORT:8080 gyunny
+IDLE_PROFILE=$(find_idle_profile)
+
+docker run -d -e active=$IDLE_PROFILE -p $IDLE_PORT:$IDLE_PORT gyunny
 #nohup java -jar $DEPLOY_JAR >> /home/ec2-user/deploy.log 2>/home/ec2-user/deploy_err.log &
