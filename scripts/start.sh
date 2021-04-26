@@ -11,6 +11,7 @@ echo "> Build 파일 복사"
 echo "> cp $REPOSITORY/*.jar $REPOSITORY/"
 
 cp $REPOSITORY/zip/*.jar $REPOSITORY
+cp $REPOSITORY/zip/dockerfile $REPOSITORY
 
 echo "> 새 어플리케이션 배포"
 JAR_NAME=$(ls -tr $REPOSITORY/*.jar | tail -n 1)
@@ -27,6 +28,7 @@ IDLE_PROFILE=$(find_idle_profile)
 
 echo "> $JAR_NAME 를 profile=$IDLE_PROFILE 로 실행합니다."
 
+docker build -t gyunny ./
 docker run -d -e active=$IDLE_PROFILE -p $IDLE_PORT:$IDLE_PORT gyunny
 
 # nohup java -jar \
