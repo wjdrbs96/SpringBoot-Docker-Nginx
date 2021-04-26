@@ -31,5 +31,6 @@ echo "> DEPLOY_JAR 배포"    >> /home/ec2-user/deploy.log
 
 IDLE_PROFILE=$(find_idle_profile)
 
+
 docker run -d -e active=$IDLE_PROFILE -p $IDLE_PORT:$IDLE_PORT gyunny
 #nohup java -jar $DEPLOY_JAR >> /home/ec2-user/deploy.log 2>/home/ec2-user/deploy_err.log &
