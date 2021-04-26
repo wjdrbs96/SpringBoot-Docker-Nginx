@@ -1,4 +1,10 @@
-cd /home/ec2-user/app/step3
+ABSPATH=$(readlink -f $0)
+ABSDIR=$(dirname $ABSPATH)
+source ${ABSDIR}/profile.sh
+
+IDLE_PORT=$(find_idle_port)
+
+cd /home/ec2-user/app/step4
 echo "> 복사좀 되어라 !!!" >> /home/ec2-user/deploy.log
 BUILD_JAR=$(ls *.jar)
 JAR_NAME=$(basename $BUILD_JAR)
@@ -22,4 +28,6 @@ fi
 
 DEPLOY_JAR=$DEPLOY_PATH$JAR_NAME
 echo "> DEPLOY_JAR 배포"    >> /home/ec2-user/deploy.log
-nohup java -jar $DEPLOY_JAR >> /home/ec2-user/deploy.log 2>/home/ec2-user/deploy_err.log &
+
+docker run build -d -p $IDLE_PORT:8080 gyunny
+#nohup java -jar $DEPLOY_JAR >> /home/ec2-user/deploy.log 2>/home/ec2-user/deploy_err.log &
