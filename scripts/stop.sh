@@ -11,14 +11,21 @@ IDLE_PROFILE=$(find_idle_profile)
 #echo "> $IDLE_PORT 에서 구동중인 애플리케이션 pid 확인"
 #IDLE_PID=$(sudo lsof -ti tcp:${IDLE_PORT})
 
-if [ -z ${IDLE_PID} ]
-then
-  echo "> 현재 구동중인 애플리케이션이 없으므로 종료하지 않습니다."
-else
-  echo "> kill -15 $IDLE_PID"
-  sudo docker stop real2
-  sudo docker rm real2
-  kil -15 123
-  # kill -15 ${IDLE_PID}
-  sleep 5
-fi
+#if [ -z ${IDLE_PID} ]
+#then
+#  echo "> 현재 구동중인 애플리케이션이 없으므로 종료하지 않습니다."
+#else
+#  echo "> kill -15 $IDLE_PID"
+#  sudo docker stop real2
+#  sudo docker rm real2
+#  kil -15 123
+#  # kill -15 ${IDLE_PID}
+#  sleep 5
+#fi
+
+echo "> kill -15 $IDLE_PID"
+sudo docker stop real2
+sudo docker rm real2
+kil -15 123
+# kill -15 ${IDLE_PID}
+sleep 5
