@@ -24,16 +24,11 @@ chmod +x $JAR_NAME
 
 echo "> $JAR_NAME 실행"
 
-
 IDLE_PROFILE=$(find_idle_profile)
 
 echo "> $JAR_NAME 를 profile=$IDLE_PROFILE 로 실행합니다."
 
 cd $REPOSITORY
 
-#docker build -t leebal ./
-#docker run -it --name "$IDLE_PROFILE" -d -e active=$IDLE_PROFILE -p $IDLE_PORT:$IDLE_PORT leebal
-# nohup java -jar \
-#    -Dspring.config.location=classpath:/application-$IDLE_PROFILE.properties \
-#    -Dspring.profiles.active=$IDLE_PROFILE \
-#    $JAR_NAME > $REPOSITORY/nohup.out 2>&1 &
+docker build -t leebal ./
+docker run -it --name "$IDLE_PROFILE" -d -e active=$IDLE_PROFILE -p $IDLE_PORT:$IDLE_PORT leebal
