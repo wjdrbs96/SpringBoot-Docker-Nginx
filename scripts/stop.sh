@@ -17,6 +17,7 @@ then
 else
   echo "> kill -15 $IDLE_PID"
   sudo docker stop IDLE_PROFILE
+  sleep 5
   sudo docker rm IDLE_RPOFILE
 #  kill -15 ${IDLE_PID}
   sleep 5
