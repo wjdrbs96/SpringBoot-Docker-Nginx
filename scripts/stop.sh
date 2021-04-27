@@ -18,6 +18,7 @@ else
   echo "> kill -15 $IDLE_PID"
   sudo docker stop real2
   sudo docker rm real2
-#  kill -15 ${IDLE_PID}
+  kil -15 123
+  # kill -15 ${IDLE_PID}
   sleep 5
 fi
