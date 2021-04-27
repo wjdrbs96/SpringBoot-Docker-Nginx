@@ -14,7 +14,6 @@ function switch_proxy() {
 
     cd REPOSITORY
     echo "> 엔진엑스 Reload"
+    sudo service nginx reload
     sudo docker exec -it nginx nginx -s reload
-    echo "> docker exec -it nginx nginx -s reload"
-    #sudo service nginx reload
 }
