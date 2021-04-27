@@ -8,7 +8,7 @@ services:
     volumes:
       - /etc/nginx/:/etc/nginx/
       - /etc/nginx/conf.d/:/etc/nginx/conf.d
-  spring:
+  spring1:
     build: .
     ports:
       - 8081:8081
@@ -16,3 +16,11 @@ services:
       - ./:/root/
     environment:
       active: real1
+  spring2:
+    build: .
+    ports:
+      - 8082:8082
+    volumes:
+      - ./:/root/
+    environment:
+      active: real2
