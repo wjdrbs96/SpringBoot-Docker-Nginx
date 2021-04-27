@@ -24,13 +24,12 @@ chmod +x $JAR_NAME
 
 echo "> $JAR_NAME 실행"
 
-echo ">$(pwd)"
 
 IDLE_PROFILE=$(find_idle_profile)
 
 echo "> $JAR_NAME 를 profile=$IDLE_PROFILE 로 실행합니다."
 
-cd ..
+cd $REPOSITORY
 
 docker build -t leebal ./
 docker run -d -e active=$IDLE_PROFILE -p $IDLE_PORT:$IDLE_PORT leebal
