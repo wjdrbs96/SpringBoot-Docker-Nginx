@@ -7,12 +7,13 @@ source ${ABSDIR}/profile.sh
 function switch_proxy() {
     IDLE_PORT=$(find_idle_port)
 
+    CONTAINER_ID=$(docker container ls -f "name=nginx" -q)
     echo "> 전환할 Port: $IDLE_PORT"
     echo "> Port 전환"
     echo "set \$service_url http://3.36.209.141:${IDLE_PORT};" | sudo tee /etc/nginx/conf.d/service-url.inc
 
     #echo "> 엔진엑스 Reload ${IDLE_PORT}"
-    sudo docker exec -it nginx nginx -s reload
+    sudo docker exec -it ${CONTAINER_ID} nginx -s reload
     echo "> docker exec -it nginx nginx -s reload"
 }
 
