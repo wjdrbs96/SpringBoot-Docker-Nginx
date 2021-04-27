@@ -15,6 +15,4 @@ function switch_proxy() {
     echo "> 엔진엑스 Reload ${IDLE_PORT}"
     sudo docker exec -it nginx nginx -s reload
     echo "> docker exec -it nginx nginx -s reload"
-
-    if (test) () {System.out.println() }
 }

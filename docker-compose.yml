@@ -10,6 +10,8 @@ services:
       - /etc/nginx/conf.d/:/etc/nginx/conf.d
   spring1:
     build: .
+    image: spring
+    container_name: real1
     ports:
       - 8081:8081
     volumes:
@@ -18,6 +20,8 @@ services:
       active: real1
   spring2:
     build: .
+    image: spring
+    container_name: real2
     ports:
       - 8082:8082
     volumes:
