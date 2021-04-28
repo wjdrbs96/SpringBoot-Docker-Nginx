@@ -13,7 +13,7 @@ services:
     container_name: real1
     ports:
       - 8081:8081
-    volumes:d
+    volumes:
       - ./:/root/
     environment:
       active: real1
